@@ -12,7 +12,7 @@ Laravel CloudFlare
 
 ## What Is Laravel CloudFlare?
 
-Laravel CloudFlare provides a simple [CloudFlare](https://www.cloudflare.com/) module For [Laravel 4.1](http://laravel.com).
+Laravel CloudFlare provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 4.1](http://laravel.com).
 
 * Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
 * Laravel CloudFlare relies on a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/GrahamCampbell/Laravel-CloudFlare-API).

@@ -9,6 +9,12 @@
             "email": "graham@mineuk.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/asset"
+        }
+    ],
     "require": {
         "php": ">=5.4.7",
         "laravel/framework": "4.1.*",
