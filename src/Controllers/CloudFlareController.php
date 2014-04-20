@@ -44,7 +44,7 @@ class CloudFlareController extends Controller
 
         $filters = Config::get('graham-campbell/cloudflare::filters');
 
-        if (is_array($filters) && !$filters) {
+        if (is_array($filters) && !empty($filters)) {
             foreach ($filters as $filter) {
                 $this->beforeFilter($filter, array('only' => array('getIndex', 'getData')));
             }
