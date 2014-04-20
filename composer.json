@@ -29,6 +29,9 @@
     "require-dev": {
         "graham-campbell/testbench": "0.3.*"
     },
+    "suggest": {
+        "graham-campbell/navigation": "Easily add a navigation bar."
+    },
     "autoload": {
         "psr-4": {
             "GrahamCampbell\\CloudFlare\\": "src/"
@@ -38,9 +41,6 @@
         "psr-4": {
             "GrahamCampbell\\Tests\\CloudFlare\\": "tests/"
         }
-    },
-    "suggest": {
-        "graham-campbell/navigation": "Easily add a navigation bar."
     },
     "extra": {
         "branch-alias": {
