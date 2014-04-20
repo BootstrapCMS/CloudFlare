@@ -17,6 +17,7 @@
 namespace GrahamCampbell\CloudFlare\Controllers;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CloudFlareAPI\Facades\CloudFlareAPI;
