@@ -34,7 +34,7 @@ Laravel CloudFlare provides a simple [CloudFlare](https://www.cloudflare.com/) m
 
 Please check the system requirements before installing Laravel CloudFlare.
 
-To get the latest version of Laravel CloudFlare, simply require `"graham-campbell/cloudflare": "0.1.*@dev"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
+To get the latest version of Laravel CloudFlare, simply require `"graham-campbell/cloudflare": "0.1.*@alpha"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
 You will need to register a few service providers before you attempt to load the Laravel CloudFlare service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
