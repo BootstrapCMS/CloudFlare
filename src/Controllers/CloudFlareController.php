@@ -19,7 +19,6 @@ namespace GrahamCampbell\CloudFlare\Controllers;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
-use GrahamCampbell\Viewer\Facades\Viewer;
 use GrahamCampbell\CloudFlareAPI\Facades\CloudFlareAPI;
 
 /**
@@ -58,7 +57,7 @@ class CloudFlareController extends Controller
      */
     public function getIndex()
     {
-        return Viewer::make('graham-campbell/cloudflare::index', array(), 'admin');
+        return View::make('graham-campbell/cloudflare::index');
     }
 
     /**

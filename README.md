@@ -12,7 +12,7 @@ Laravel CloudFlare
 
 ## What Is Laravel CloudFlare?
 
-Laravel CloudFlare provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 4.1](http://laravel.com).
+Laravel CloudFlare provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 4.1+](http://laravel.com).
 
 * Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
 * Laravel CloudFlare relies on a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/GrahamCampbell/Laravel-CloudFlare-API).
@@ -25,8 +25,8 @@ Laravel CloudFlare provides a simple [CloudFlare](https://www.cloudflare.com/) m
 
 ## System Requirements
 
-* PHP 5.4.7+ or HHVM 3.0+ is required.
-* You will need [Laravel 4.1](http://laravel.com) because this package is designed for it.
+* PHP 5.4.7+ or HHVM 3.1+ is required.
+* You will need [Laravel 4.1+](http://laravel.com) because this package is designed for it.
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel CloudFlare.
 
 
@@ -34,13 +34,12 @@ Laravel CloudFlare provides a simple [CloudFlare](https://www.cloudflare.com/) m
 
 Please check the system requirements before installing Laravel CloudFlare.
 
-To get the latest version of Laravel CloudFlare, simply require `"graham-campbell/cloudflare": "0.1.*@alpha"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
+To get the latest version of Laravel CloudFlare, simply require `"graham-campbell/cloudflare": "~0.2"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
 You will need to register a few service providers before you attempt to load the Laravel CloudFlare service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
 * `'Lightgear\Asset\AssetServiceProvider'`
 * `'GrahamCampbell\Core\CoreServiceProvider'`
-* `'GrahamCampbell\Viewer\ViewerServiceProvider'`
 * `'GrahamCampbell\CoreAPI\CoreAPIServiceProvider'`
 * `'GrahamCampbell\CloudFlareAPI\CloudFlareAPIServiceProvider'`
 
