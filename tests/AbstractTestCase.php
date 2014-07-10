@@ -49,7 +49,6 @@ abstract class AbstractTestCase extends AbstractLaravelTestCase
         return array(
             'Lightgear\Asset\AssetServiceProvider',
             'GrahamCampbell\Core\CoreServiceProvider',
-            'GrahamCampbell\CoreAPI\CoreAPIServiceProvider',
             'GrahamCampbell\CloudFlareAPI\CloudFlareAPIServiceProvider'
         );
     }
