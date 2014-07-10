@@ -4,7 +4,7 @@ CHANGE LOG
 
 ## V0.2 Alpha (Upcoming)
 
-* Upgraded to laravel 4.1+
+* Upgraded to laravel 4.2+
 * Updated to my new cloudflare api package
 * Minor refactoring
 

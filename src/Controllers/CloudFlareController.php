@@ -16,10 +16,9 @@
 
 namespace GrahamCampbell\CloudFlare\Controllers;
 
+use Illuminate\View\Factory;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\View;
-use GrahamCampbell\CloudFlareAPI\Facades\CloudFlareAPI;
+use GrahamCampbell\CloudFlareAPI\Models\Zone;
 
 /**
  * This is the cloudflare controller class.
@@ -35,18 +34,17 @@ class CloudFlareController extends Controller
     /**
      * Create a new instance.
      *
+     * @param  \Illuminate\View\Factory  $view
+     * @param  \GrahamCampbell\CloudFlareAPI\Models\Zone  $zone
+     * @param  array  $filters
      * @return void
      */
-    public function __construct()
+    public function __construct(Factory $view, Zone $zone, array $filters)
     {
         $this->beforeFilter('ajax', array('only' => array('getData')));
 
-        $filters = Config::get('graham-campbell/cloudflare::filters');
-
-        if (is_array($filters) && !empty($filters)) {
-            foreach ($filters as $filter) {
-                $this->beforeFilter($filter, array('only' => array('getIndex', 'getData')));
-            }
+        foreach ($filters as $filter) {
+            $this->beforeFilter($filter, array('only' => array('getIndex', 'getData')));
         }
     }
 
@@ -57,7 +55,7 @@ class CloudFlareController extends Controller
      */
     public function getIndex()
     {
-        return View::make('graham-campbell/cloudflare::index');
+        return $this->view->make('graham-campbell/cloudflare::index');
     }
 
     /**
@@ -67,11 +65,8 @@ class CloudFlareController extends Controller
      */
     public function getData()
     {
-        $connection = Config::get('graham-campbell/cloudflare::connection');
-        $zone = Config::get('graham-campbell/cloudflare::zone');
+        $data = $this->zone->getTraffic();
 
-        $data = CloudFlareAPI::connection($connection)->zone($zone)->getTraffic();
-
-        return View::make('graham-campbell/cloudflare::data', array('data' => $data));
+        return $this->view->make('graham-campbell/cloudflare::data', array('data' => $data));
     }
 }
