@@ -61,14 +61,17 @@ class CloudFlareController extends Controller
     }
 
     /**
-     * Display a data.
+     * Display the traffic data.
      *
      * @return \Illuminate\Http\Response
      */
     public function getData()
     {
-        $stats = CloudFlareAPI::apiStats();
-        $data = $stats->json()['response']['result']['objs']['0']['trafficBreakdown'];
+        $connection = Config::get('graham-campbell/cloudflare::connection');
+        $zone = Config::get('graham-campbell/cloudflare::zone');
+
+        $data = CloudFlareAPI::connection($connection)->zone($zone)->getTraffic();
+
         return View::make('graham-campbell/cloudflare::data', array('data' => $data));
     }
 }

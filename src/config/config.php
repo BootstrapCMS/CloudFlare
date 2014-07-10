@@ -28,6 +28,34 @@ return array(
     |
     */
 
-    'filters' => array()
+    'filters' => array(),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Connection
+    |--------------------------------------------------------------------------
+    |
+    | This defines the connection to use for api calls to CloudFlare. Set this
+    | to null to use the default connection, or specify a connection name as
+    | defined in your cloudflare-api config file.
+    |
+    | Default to null.
+    |
+    */
+
+    'connection' => null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Zone
+    |--------------------------------------------------------------------------
+    |
+    | This defines the zone to use for api calls to CloudFlare.
+    |
+    | Default to 'example.com'.
+    |
+    */
+
+    'zone' => 'example.com'
 
 );
