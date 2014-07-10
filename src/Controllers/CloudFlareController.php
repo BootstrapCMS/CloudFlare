@@ -32,6 +32,20 @@ use GrahamCampbell\CloudFlareAPI\Models\Zone;
 class CloudFlareController extends Controller
 {
     /**
+     * The view factory instance.
+     *
+     * @var \Illuminate\View\Factory
+     */
+    protected $view;
+
+    /**
+     * The zone model instance.
+     *
+     * @var \GrahamCampbell\CloudFlareAPI\Models\Zone
+     */
+    protected $zone;
+
+    /**
      * Create a new instance.
      *
      * @param  \Illuminate\View\Factory  $view
@@ -41,6 +55,9 @@ class CloudFlareController extends Controller
      */
     public function __construct(Factory $view, Zone $zone, array $filters)
     {
+        $this->view = $view;
+        $this->zone = $zone;
+
         $this->beforeFilter('ajax', array('only' => array('getData')));
 
         foreach ($filters as $filter) {
@@ -68,5 +85,25 @@ class CloudFlareController extends Controller
         $data = $this->zone->getTraffic();
 
         return $this->view->make('graham-campbell/cloudflare::data', array('data' => $data));
+    }
+
+    /**
+     * Return the view factory instance.
+     *
+     * @return \Illuminate\View\Factory
+     */
+    public function getView()
+    {
+        return $this->view;
+    }
+
+    /**
+     * Return the zone model instance.
+     *
+     * @return \GrahamCampbell\CloudFlareAPI\Models\Zone
+     */
+    public function getZone()
+    {
+        return $this->zone;
     }
 }
