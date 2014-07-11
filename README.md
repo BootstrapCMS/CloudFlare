@@ -39,7 +39,7 @@ To get started, first publish the package config file:
 
     php artisan config:publish graham-campbell/cloudflare
 
-There is one config option:
+There are a few config options:
 
 **Filters**
 
@@ -52,6 +52,15 @@ This option (`'connection'`) defines the connection to use for api calls to Clou
 **Zone**
 
 This option (`'zone'`) defines the zone to use for api calls to CloudFlare. The default value for this setting is `'example.com'`.
+
+**Cache Driver**
+
+This option (`'driver'`) defines the cache driver to be used. It may be the name of any driver set in app/config/cache.php. Setting it to null will use the driver you have set as default in app/config/cache.php. The default value for this setting is `null`.
+
+**Cache Key**
+
+This option (`'key'`) defines the cache key to be used for storing the stats cache. The default value for this setting is `'cloudflarestats'`.
+
 
 **Additional Configuration**
 

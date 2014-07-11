@@ -18,6 +18,7 @@ namespace GrahamCampbell\CloudFlare\Controllers;
 
 use Illuminate\View\Factory;
 use Illuminate\Routing\Controller;
+use Illuminate\Cache\StoreInterface;
 use GrahamCampbell\CloudFlareAPI\Models\Zone;
 
 /**
@@ -46,17 +47,35 @@ class CloudFlareController extends Controller
     protected $zone;
 
     /**
+     * The store instance.
+     *
+     * @var \Illuminate\Cache\StoreInterface
+     */
+    protected $store;
+
+    /**
+     * The store key.
+     *
+     * @var string
+     */
+    protected $key;
+
+    /**
      * Create a new instance.
      *
      * @param  \Illuminate\View\Factory  $view
      * @param  \GrahamCampbell\CloudFlareAPI\Models\Zone  $zone
-     * @param  array  $filters
+     * @param  \Illuminate\Cache\StoreInterface  $store
+     * @param  string  $key
+     * @param  array   $filters
      * @return void
      */
-    public function __construct(Factory $view, Zone $zone, array $filters)
+    public function __construct(Factory $view, Zone $zone, StoreInterface $store, $key, array $filters)
     {
         $this->view = $view;
         $this->zone = $zone;
+        $this->store = $store;
+        $this->key = $key;
 
         $this->beforeFilter('ajax', array('only' => array('getData')));
 
@@ -72,7 +91,9 @@ class CloudFlareController extends Controller
      */
     public function getIndex()
     {
-        return $this->view->make('graham-campbell/cloudflare::index');
+        $data = $this->store->get($this->key);
+
+        return $this->view->make('graham-campbell/cloudflare::index', array('data' => $data));
     }
 
     /**
@@ -83,6 +104,8 @@ class CloudFlareController extends Controller
     public function getData()
     {
         $data = $this->zone->getTraffic();
+
+        $this->store->put($this->key, $data, 30);
 
         return $this->view->make('graham-campbell/cloudflare::data', array('data' => $data));
     }
@@ -105,5 +128,15 @@ class CloudFlareController extends Controller
     public function getZone()
     {
         return $this->zone;
+    }
+
+    /**
+     * Get the store instance.
+     *
+     * @return \Illuminate\Cache\StoreInterface
+     */
+    public function getStore()
+    {
+        return $this->store;
     }
 }
