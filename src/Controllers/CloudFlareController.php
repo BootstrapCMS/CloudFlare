@@ -16,11 +16,10 @@
 
 namespace GrahamCampbell\CloudFlare\Controllers;
 
+use Illuminate\View\Factory;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\View;
-use GrahamCampbell\Viewer\Facades\Viewer;
-use GrahamCampbell\CloudFlareAPI\Facades\CloudFlareAPI;
+use Illuminate\Cache\StoreInterface;
+use GrahamCampbell\CloudFlareAPI\Models\Zone;
 
 /**
  * This is the cloudflare controller class.
@@ -34,20 +33,54 @@ use GrahamCampbell\CloudFlareAPI\Facades\CloudFlareAPI;
 class CloudFlareController extends Controller
 {
     /**
+     * The view factory instance.
+     *
+     * @var \Illuminate\View\Factory
+     */
+    protected $view;
+
+    /**
+     * The zone model instance.
+     *
+     * @var \GrahamCampbell\CloudFlareAPI\Models\Zone
+     */
+    protected $zone;
+
+    /**
+     * The store instance.
+     *
+     * @var \Illuminate\Cache\StoreInterface
+     */
+    protected $store;
+
+    /**
+     * The store key.
+     *
+     * @var string
+     */
+    protected $key;
+
+    /**
      * Create a new instance.
      *
+     * @param  \Illuminate\View\Factory  $view
+     * @param  \GrahamCampbell\CloudFlareAPI\Models\Zone  $zone
+     * @param  \Illuminate\Cache\StoreInterface  $store
+     * @param  string  $key
+     * @param  array   $filters
      * @return void
      */
-    public function __construct()
+    public function __construct(Factory $view, Zone $zone, StoreInterface $store, $key, array $filters)
     {
+        $this->view = $view;
+        $this->zone = $zone;
+        $this->store = $store;
+        $this->key = $key;
+
         $this->beforeFilter('ajax', array('only' => array('getData')));
 
-        $filters = Config::get('graham-campbell/cloudflare::filters');
-
-        if (is_array($filters) && !empty($filters)) {
-            foreach ($filters as $filter) {
-                $this->beforeFilter($filter, array('only' => array('getIndex', 'getData')));
-            }
+        foreach ($filters as $filter) {
+            $this->beforeFilter($filter, array('only' => array('getIndex', 'getData')));
         }
     }
 
@@ -58,18 +91,52 @@ class CloudFlareController extends Controller
      */
     public function getIndex()
     {
-        return Viewer::make('graham-campbell/cloudflare::index', array(), 'admin');
+        $data = $this->store->get($this->key);
+
+        return $this->view->make('graham-campbell/cloudflare::index', array('data' => $data));
     }
 
     /**
-     * Display a data.
+     * Display the traffic data.
      *
      * @return \Illuminate\Http\Response
      */
     public function getData()
     {
-        $stats = CloudFlareAPI::apiStats();
-        $data = $stats->json()['response']['result']['objs']['0']['trafficBreakdown'];
-        return View::make('graham-campbell/cloudflare::data', array('data' => $data));
+        $data = $this->zone->getTraffic();
+
+        $this->store->put($this->key, $data, 30);
+
+        return $this->view->make('graham-campbell/cloudflare::data', array('data' => $data));
+    }
+
+    /**
+     * Return the view factory instance.
+     *
+     * @return \Illuminate\View\Factory
+     */
+    public function getView()
+    {
+        return $this->view;
+    }
+
+    /**
+     * Return the zone model instance.
+     *
+     * @return \GrahamCampbell\CloudFlareAPI\Models\Zone
+     */
+    public function getZone()
+    {
+        return $this->zone;
+    }
+
+    /**
+     * Get the store instance.
+     *
+     * @return \Illuminate\Cache\StoreInterface
+     */
+    public function getStore()
+    {
+        return $this->store;
     }
 }

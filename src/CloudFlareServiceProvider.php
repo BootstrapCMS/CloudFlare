@@ -67,7 +67,21 @@ class CloudFlareServiceProvider extends ServiceProvider
     protected function registerCloudFlareController()
     {
         $this->app->bind('GrahamCampbell\CloudFlare\Controllers\CloudFlareController', function ($app) {
-            return new Controllers\CloudFlareController();
+            $view = $app['view'];
+
+            $zone = $app['cloudflareapi']
+                ->connection($app['config']['graham-campbell/cloudflare::connection'])
+                ->zone($app['config']['graham-campbell/cloudflare::zone']);
+
+            $store = $app['cache']
+                ->driver($app['config']['graham-campbell/cloudflare::driver'])
+                ->getStore();
+
+            $key = $app['config']['graham-campbell/cloudflare::key'];
+
+            $filters = $app['config']['graham-campbell/cloudflare::filters'];
+
+            return new Controllers\CloudFlareController($view, $zone, $store, $key, $filters);
         });
     }
 
