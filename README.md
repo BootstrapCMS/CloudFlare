@@ -69,8 +69,7 @@ You may want to check out the config for `graham-campbell/cloudflare-api` too.
 
 ## Usage
 
-There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Laravel-CloudFlare
-) for Laravel CloudFlare.
+There is currently no usage documentation besides the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel CloudFlare.
 
 You may see an example of implementation in [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS).
 
