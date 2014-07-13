@@ -41,37 +41,39 @@ To get started, first publish the package config file:
 
 There are a few config options:
 
-**Filters**
+##### Filters
 
 This option (`'filters'`) defines the filters to be put in front of the endpoints provided by this package. A common use will be for your own authentication filters. The default value for this setting is `array()`.
 
-**Connection**
+##### Connection
 
 This option (`'connection'`) defines the connection to use for api calls to CloudFlare. Set this to null to use the default connection, or specify a connection name as defined in your cloudflare-api config file. The default value for this setting is `null`.
 
-**Zone**
+##### Zone
 
 This option (`'zone'`) defines the zone to use for api calls to CloudFlare. The default value for this setting is `'example.com'`.
 
-**Cache Driver**
+##### Cache Driver
 
 This option (`'driver'`) defines the cache driver to be used. It may be the name of any driver set in app/config/cache.php. Setting it to null will use the driver you have set as default in app/config/cache.php. The default value for this setting is `null`.
 
-**Cache Key**
+##### Cache Key
 
 This option (`'key'`) defines the cache key to be used for storing the stats cache. The default value for this setting is `'cloudflarestats'`.
 
 
-**Additional Configuration**
+##### Additional Configuration
 
 You may want to check out the config for `graham-campbell/cloudflare-api` too.
 
 
 ## Usage
 
-There is currently no usage documentation besides the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel CloudFlare.
+This package is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you have [app/config/platform.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/app/config/platform.php) and [app/config/views.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/app/config/views.php) correctly configured, and you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as knowledge of the `app:install` and `app:update ` commands is required.
 
-You may see an example of implementation in [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS).
+This package will register two routes. `'cloudflare'` (`cloudflare.index`) should be accessed to show the CloudFlare statistics page, and `'cloudflare/data'` (`cloudflare.data`) is internally used by this package.
+
+Feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel CloudFlare.
 
 
 ## License
