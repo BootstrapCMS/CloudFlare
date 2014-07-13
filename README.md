@@ -73,7 +73,7 @@ Laravel CloudFlare is designed to work with [Bootstrap CMS](https://github.com/G
 
 Laravel CloudFlare will register two routes. `'cloudflare'` (`cloudflare.index`) should be accessed to show the CloudFlare statistics page, and `'cloudflare/data'` (`cloudflare.data`) is internally used by this package.
 
-The internals of Laravel CloudFlare are not documented here, but feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel CloudFlare.
+The internals of Laravel CloudFlare are not documented here, but feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk).
 
 
 ## License
