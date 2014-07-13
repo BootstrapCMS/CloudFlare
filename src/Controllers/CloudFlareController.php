@@ -109,34 +109,4 @@ class CloudFlareController extends Controller
 
         return $this->view->make('graham-campbell/cloudflare::data', array('data' => $data));
     }
-
-    /**
-     * Return the view factory instance.
-     *
-     * @return \Illuminate\View\Factory
-     */
-    public function getView()
-    {
-        return $this->view;
-    }
-
-    /**
-     * Return the zone model instance.
-     *
-     * @return \GrahamCampbell\CloudFlareAPI\Models\Zone
-     */
-    public function getZone()
-    {
-        return $this->zone;
-    }
-
-    /**
-     * Get the store instance.
-     *
-     * @return \Illuminate\Cache\StoreInterface
-     */
-    public function getStore()
-    {
-        return $this->store;
-    }
 }
