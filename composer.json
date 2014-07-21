@@ -1,6 +1,6 @@
 {
     "name": "graham-campbell/cloudflare",
-    "description": "CloudFlare Provides A Simple CloudFlare Module For Laravel 4.2+",
+    "description": "CloudFlare Provides A Simple CloudFlare Module For Laravel 4.1+",
     "keywords": ["laravel", "framework", "cloudflare api", "cloudflare", "CloudFlare", "Laravel CloudFlare", "Laravel-CloudFlare", "Graham Campbell", "GrahamCampbell"],
     "license": "Apache-2.0",
     "authors": [
@@ -17,9 +17,9 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "illuminate/routing": "~4.2",
-        "illuminate/support": "~4.2",
-        "illuminate/view": "~4.2",
+        "illuminate/routing": "~4.1",
+        "illuminate/support": "~4.1",
+        "illuminate/view": "~4.1",
         "lightgear/asset": "1.4",
         "graham-campbell/core": "0.4.*",
         "graham-campbell/cloudflare-api": "0.5.*"

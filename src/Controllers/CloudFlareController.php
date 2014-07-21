@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\CloudFlare\Controllers;
 
-use Illuminate\View\Factory;
 use Illuminate\Routing\Controller;
 use Illuminate\Cache\StoreInterface;
+use Illuminate\Support\Facades\View;
 use GrahamCampbell\CloudFlareAPI\Models\Zone;
 
 /**
@@ -32,13 +32,6 @@ use GrahamCampbell\CloudFlareAPI\Models\Zone;
  */
 class CloudFlareController extends Controller
 {
-    /**
-     * The view factory instance.
-     *
-     * @var \Illuminate\View\Factory
-     */
-    protected $view;
-
     /**
      * The zone model instance.
      *
@@ -63,16 +56,14 @@ class CloudFlareController extends Controller
     /**
      * Create a new instance.
      *
-     * @param  \Illuminate\View\Factory  $view
      * @param  \GrahamCampbell\CloudFlareAPI\Models\Zone  $zone
      * @param  \Illuminate\Cache\StoreInterface  $store
      * @param  string  $key
      * @param  array   $filters
      * @return void
      */
-    public function __construct(Factory $view, Zone $zone, StoreInterface $store, $key, array $filters)
+    public function __construct(Zone $zone, StoreInterface $store, $key, array $filters)
     {
-        $this->view = $view;
         $this->zone = $zone;
         $this->store = $store;
         $this->key = $key;
@@ -93,7 +84,7 @@ class CloudFlareController extends Controller
     {
         $data = $this->store->get($this->key);
 
-        return $this->view->make('graham-campbell/cloudflare::index', array('data' => $data));
+        return View::make('graham-campbell/cloudflare::index', array('data' => $data));
     }
 
     /**
@@ -107,6 +98,6 @@ class CloudFlareController extends Controller
 
         $this->store->put($this->key, $data, 30);
 
-        return $this->view->make('graham-campbell/cloudflare::data', array('data' => $data));
+        return View::make('graham-campbell/cloudflare::data', array('data' => $data));
     }
 }
