@@ -16,10 +16,11 @@
 
 namespace GrahamCampbell\CloudFlare\Controllers;
 
-use Illuminate\Routing\Controller;
-use Illuminate\Cache\StoreInterface;
-use Illuminate\Support\Facades\View;
 use GrahamCampbell\CloudFlareAPI\Models\Zone;
+use Illuminate\Cache\StoreInterface;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+
 
 /**
  * This is the cloudflare controller class.
