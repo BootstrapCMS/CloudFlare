@@ -21,7 +21,6 @@ use Illuminate\Cache\StoreInterface;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 
-
 /**
  * This is the cloudflare controller class.
  *
