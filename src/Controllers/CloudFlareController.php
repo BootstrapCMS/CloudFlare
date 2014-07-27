@@ -24,42 +24,41 @@ use Illuminate\Support\Facades\View;
 /**
  * This is the cloudflare controller class.
  *
- * @package    Laravel-CloudFlare
- * @author     Graham Campbell
- * @copyright  Copyright 2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-CloudFlare/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-CloudFlare
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-CloudFlare/blob/master/LICENSE.md> Apache 2.0
  */
 class CloudFlareController extends Controller
 {
     /**
      * The zone model instance.
      *
-     * @var \GrahamCampbell\CloudFlareAPI\Models\Zone
+     * @type \GrahamCampbell\CloudFlareAPI\Models\Zone
      */
     protected $zone;
 
     /**
      * The store instance.
      *
-     * @var \Illuminate\Cache\StoreInterface
+     * @type \Illuminate\Cache\StoreInterface
      */
     protected $store;
 
     /**
      * The store key.
      *
-     * @var string
+     * @type string
      */
     protected $key;
 
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\CloudFlareAPI\Models\Zone  $zone
-     * @param  \Illuminate\Cache\StoreInterface  $store
-     * @param  string  $key
-     * @param  array   $filters
+     * @param \GrahamCampbell\CloudFlareAPI\Models\Zone $zone
+     * @param \Illuminate\Cache\StoreInterface          $store
+     * @param string                                    $key
+     * @param array                                     $filters
+     *
      * @return void
      */
     public function __construct(Zone $zone, StoreInterface $store, $key, array $filters)
