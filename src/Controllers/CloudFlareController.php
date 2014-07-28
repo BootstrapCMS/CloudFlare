@@ -57,7 +57,7 @@ class CloudFlareController extends Controller
      * @param \GrahamCampbell\CloudFlareAPI\Models\Zone $zone
      * @param \Illuminate\Cache\StoreInterface          $store
      * @param string                                    $key
-     * @param array                                     $filters
+     * @param string[]                                  $filters
      *
      * @return void
      */
