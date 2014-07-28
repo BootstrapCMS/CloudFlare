@@ -37,7 +37,9 @@ Laravel CloudFlare supports optional configuration.
 
 To get started, first publish the package config file:
 
-    php artisan config:publish graham-campbell/cloudflare
+```bash
+$ php artisan config:publish graham-campbell/cloudflare
+```
 
 There are a few config options:
 
