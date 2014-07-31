@@ -33,21 +33,21 @@ class CloudFlareController extends Controller
     /**
      * The zone model instance.
      *
-     * @type \GrahamCampbell\CloudFlareAPI\Models\Zone
+     * @var \GrahamCampbell\CloudFlareAPI\Models\Zone
      */
     protected $zone;
 
     /**
      * The store instance.
      *
-     * @type \Illuminate\Cache\StoreInterface
+     * @var \Illuminate\Cache\StoreInterface
      */
     protected $store;
 
     /**
      * The store key.
      *
-     * @type string
+     * @var string
      */
     protected $key;
 
