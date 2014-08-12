@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V0.2 Alpha (Upcoming - August 2014)
+## V0.2 Alpha (12/08/2014)
 
 * Upgraded to laravel 4.1+
 * Updated to my new cloudflare api package
