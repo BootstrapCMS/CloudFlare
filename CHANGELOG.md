@@ -2,11 +2,12 @@ CHANGE LOG
 ==========
 
 
-## V0.2.1 Alpha (12/08/2014)
+## V0.2.1 Alpha (Upcoming)
 
 * Upgraded to cloudflare api 0.6
 * Added cs fixers to the test suite
 * Improved the docs
+
 
 ## V0.2 Alpha (12/08/2014)
 
