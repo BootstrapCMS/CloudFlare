@@ -17,5 +17,5 @@
 use Lightgear\Asset\Facades\Asset;
 
 Asset::registerScripts(array(
-    'graham-campbell/cloudflare/src/assets/js/cloudflare.js'
+    'graham-campbell/cloudflare/src/assets/js/cloudflare.js',
 ), '', 'cloudflare');

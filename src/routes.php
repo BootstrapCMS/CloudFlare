@@ -16,10 +16,10 @@
 
 Route::get('cloudflare', array(
     'as' => 'cloudflare.index',
-    'uses' => 'GrahamCampbell\CloudFlare\Controllers\CloudFlareController@getIndex'
+    'uses' => 'GrahamCampbell\CloudFlare\Controllers\CloudFlareController@getIndex',
 ));
 
 Route::get('cloudflare/data', array(
     'as' => 'cloudflare.data',
-    'uses' => 'GrahamCampbell\CloudFlare\Controllers\CloudFlareController@getData'
+    'uses' => 'GrahamCampbell\CloudFlare\Controllers\CloudFlareController@getData',
 ));
