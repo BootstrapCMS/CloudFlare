@@ -1,17 +1,17 @@
 Laravel CloudFlare
 ==================
 
-
-[![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-CloudFlare/master.svg?style=flat-square)](https://travis-ci.org/GrahamCampbell/Laravel-CloudFlare)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-CloudFlare.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-CloudFlare/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-CloudFlare.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-CloudFlare)
-[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Laravel-CloudFlare.svg?style=flat-square)](https://github.com/GrahamCampbell/Laravel-CloudFlare/releases)
-
-
-## Introduction
-
 Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 4.1/4.2](http://laravel.com). It utilises a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/GrahamCampbell/Laravel-CloudFlare-API). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-CloudFlare/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+
+![Laravel CloudFlare](https://cloud.githubusercontent.com/assets/2829600/4432320/c1804e48-468c-11e4-8786-34d48cf3ad2b.PNG)
+
+<p align="center">
+<a href="https://travis-ci.org/GrahamCampbell/Laravel-CloudFlare"><img src="https://img.shields.io/travis/GrahamCampbell/Laravel-CloudFlare/master.svg?style=flat-square" alt="Build Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-CloudFlare/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-CloudFlare.svg?style=flat-square" alt="Coverage Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-CloudFlare"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-CloudFlare.svg?style=flat-square" alt="Quality Score"></img></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
+<a href="https://github.com/GrahamCampbell/Laravel-CloudFlare/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Laravel-CloudFlare.svg?style=flat-square" alt="Latest Version"></img></a>
+</p>
 
 
 ## Installation
