@@ -4,6 +4,7 @@ CHANGE LOG
 
 ## V0.2.1 Alpha (Upcoming)
 
+* Upgraded to core 1.x
 * Upgraded to cloudflare api 0.6
 * Added cs fixers to the test suite
 * Improved the docs
