@@ -1,9 +1,9 @@
 Laravel CloudFlare
 ==================
 
-Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 4.1/4.2](http://laravel.com). It utilises a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/GrahamCampbell/Laravel-CloudFlare-API). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-CloudFlare/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 5](http://laravel.com). It utilises a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/GrahamCampbell/Laravel-CloudFlare-API). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-CloudFlare/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
-![Laravel CloudFlare](https://cloud.githubusercontent.com/assets/2829600/4432320/c1804e48-468c-11e4-8786-34d48cf3ad2b.PNG)
+![Laravel CloudFlare](https://cloud.githubusercontent.com/assets/2829600/4432321/c18eb49c-468c-11e4-9f4d-8ece7a481d29.PNG)
 
 <p align="center">
 <a href="https://travis-ci.org/GrahamCampbell/Laravel-CloudFlare"><img src="https://img.shields.io/travis/GrahamCampbell/Laravel-CloudFlare/master.svg?style=flat-square" alt="Build Status"></img></a>
@@ -21,24 +21,24 @@ Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https:
 To get the latest version of Laravel CloudFlare, simply add the following line to the require block of your `composer.json` file:
 
 ```
-"graham-campbell/cloudflare": "0.2.*"
+"graham-campbell/cloudflare": "0.3.*"
 ```
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
-You will need to register a few service providers before you attempt to load the Laravel CloudFlare service provider. Open up `app/config/app.php` and add the following to the `providers` key.
+You will need to register a few service providers before you attempt to load the Laravel CloudFlare service provider. Open up `config/app.php` and add the following to the `providers` key.
 
 * `'Lightgear\Asset\AssetServiceProvider'`
 * `'GrahamCampbell\Core\CoreServiceProvider'`
 * `'GrahamCampbell\CloudFlareAPI\CloudFlareAPIServiceProvider'`
 
-Once Laravel CloudFlare is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
+Once Laravel CloudFlare is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
 * `'GrahamCampbell\CloudFlare\CloudFlareServiceProvider'`
 
-#### Looking for a laravel 5 compatable version?
+#### Looking for a laravel 4 compatable version?
 
-Checkout the [master branch](https://github.com/GrahamCampbell/Laravel-CloudFlare/tree/master), installable by requiring `"graham-campbell/cloudflare": "0.3.*"`.
+Checkout the [0.2 branch](https://github.com/GrahamCampbell/Laravel-CloudFlare/tree/0.2), installable by requiring `"graham-campbell/cloudflare": "0.2.*"`.
 
 
 ## Configuration
@@ -48,7 +48,7 @@ Laravel CloudFlare supports optional configuration.
 To get started, first publish the package config file:
 
 ```bash
-$ php artisan config:publish graham-campbell/cloudflare
+$ php artisan publish:config graham-campbell/cloudflare
 ```
 
 There are a few config options:
@@ -67,7 +67,7 @@ This option (`'zone'`) defines the zone to use for api calls to CloudFlare. The 
 
 ##### Cache Driver
 
-This option (`'driver'`) defines the cache driver to be used. It may be the name of any driver set in app/config/cache.php. Setting it to null will use the driver you have set as default in app/config/cache.php. The default value for this setting is `null`.
+This option (`'driver'`) defines the cache driver to be used. It may be the name of any driver set in config/cache.php. Setting it to null will use the driver you have set as default in config/cache.php. The default value for this setting is `null`.
 
 ##### Cache Key
 
@@ -81,7 +81,7 @@ You may want to check out the config for `graham-campbell/cloudflare-api` too.
 
 ## Usage
 
-Laravel CloudFlare is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you have [app/config/platform.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/app/config/platform.php) and [app/config/views.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/app/config/views.php) correctly configured, and you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as knowledge of the `app:install` and `app:update ` commands is required.
+Laravel CloudFlare is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you have [config/platform.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/config/platform.php) and [config/views.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/config/views.php) correctly configured, and you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as knowledge of the `app:install` and `app:update ` commands is required.
 
 Laravel CloudFlare will register two routes. `'cloudflare'` (`cloudflare.index`) should be accessed to show the CloudFlare statistics page, and `'cloudflare/data'` (`cloudflare.data`) is internally used by this package.
 
