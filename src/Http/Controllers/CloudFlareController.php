@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\CloudFlare\Controllers;
+namespace GrahamCampbell\CloudFlare\Http\Controllers;
 
 use GrahamCampbell\CloudFlareAPI\Models\Zone;
 use Illuminate\Cache\StoreInterface;

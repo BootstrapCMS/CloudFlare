@@ -64,7 +64,7 @@ class CloudFlareServiceProvider extends ServiceProvider
      */
     protected function registerCloudFlareController()
     {
-        $this->app->bind('GrahamCampbell\CloudFlare\Controllers\CloudFlareController', function ($app) {
+        $this->app->bind('GrahamCampbell\CloudFlare\Http\Controllers\CloudFlareController', function ($app) {
             $zone = $app['cloudflareapi']
                 ->connection($app['config']['graham-campbell/cloudflare::connection'])
                 ->zone($app['config']['graham-campbell/cloudflare::zone']);
@@ -77,7 +77,7 @@ class CloudFlareServiceProvider extends ServiceProvider
 
             $filters = $app['config']['graham-campbell/cloudflare::filters'];
 
-            return new Controllers\CloudFlareController($zone, $store, $key, $filters);
+            return new Http\Controllers\CloudFlareController($zone, $store, $key, $filters);
         });
     }
 
