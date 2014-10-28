@@ -36,6 +36,10 @@ Once Laravel CloudFlare is installed, you need to register the service provider.
 
 * `'GrahamCampbell\CloudFlare\CloudFlareServiceProvider'`
 
+#### Looking for a laravel 5 compatable version?
+
+Checkout the [master branch](https://github.com/GrahamCampbell/Laravel-CloudFlare/tree/master), installable by requiring `"graham-campbell/cloudflare": "0.3.*"`.
+
 
 ## Configuration
 
