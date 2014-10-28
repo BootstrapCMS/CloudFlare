@@ -30,6 +30,6 @@ CloudFlare
     <script>
     var laravelCloudFlareURL = '{{ URL::route('cloudflare.data') }}';
     </script>
-    {{ Asset::scripts('cloudflare') }}
+    {!! Asset::scripts('cloudflare') !!}
 @endif
 @stop
