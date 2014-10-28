@@ -88,8 +88,8 @@ class CloudFlareServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array(
+        return [
             //
-        );
+        ];
     }
 }

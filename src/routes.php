@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-Route::get('cloudflare', array(
+Route::get('cloudflare', [
     'as' => 'cloudflare.index',
     'uses' => 'GrahamCampbell\CloudFlare\Http\Controllers\CloudFlareController@getIndex',
-));
+]);
 
-Route::get('cloudflare/data', array(
+Route::get('cloudflare/data', [
     'as' => 'cloudflare.data',
     'uses' => 'GrahamCampbell\CloudFlare\Http\Controllers\CloudFlareController@getData',
-));
+]);

@@ -67,10 +67,10 @@ class CloudFlareController extends Controller
         $this->store = $store;
         $this->key = $key;
 
-        $this->beforeFilter('ajax', array('only' => array('getData')));
+        $this->beforeFilter('ajax', ['only' => ['getData']]);
 
         foreach ($filters as $filter) {
-            $this->beforeFilter($filter, array('only' => array('getIndex', 'getData')));
+            $this->beforeFilter($filter, ['only' => ['getIndex', 'getData']]);
         }
     }
 
@@ -83,7 +83,7 @@ class CloudFlareController extends Controller
     {
         $data = $this->store->get($this->key);
 
-        return View::make('graham-campbell/cloudflare::index', array('data' => $data));
+        return View::make('graham-campbell/cloudflare::index', ['data' => $data]);
     }
 
     /**
@@ -97,6 +97,6 @@ class CloudFlareController extends Controller
 
         $this->store->put($this->key, $data, 30);
 
-        return View::make('graham-campbell/cloudflare::data', array('data' => $data));
+        return View::make('graham-campbell/cloudflare::data', ['data' => $data]);
     }
 }
