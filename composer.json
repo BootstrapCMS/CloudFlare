@@ -13,6 +13,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/GrahamCampbell/asset"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/GrahamCampbell/testbench"
         }
     ],
     "require": {
@@ -25,6 +29,7 @@
         "graham-campbell/cloudflare-api": "0.7.*"
     },
     "require-dev": {
+        "orchestra/testbench": "dev-fix-logging as 3.0.x-dev",
         "graham-campbell/testbench": "~2.0"
     },
     "suggest": {
