@@ -17,6 +17,7 @@
 namespace GrahamCampbell\CloudFlare\Http\Controllers;
 
 use GrahamCampbell\CloudFlareAPI\Models\Zone;
+use GrahamCampbell\Core\Http\Middleware\Ajax;
 use Illuminate\Cache\StoreInterface;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
@@ -57,20 +58,20 @@ class CloudFlareController extends Controller
      * @param \GrahamCampbell\CloudFlareAPI\Models\Zone $zone
      * @param \Illuminate\Cache\StoreInterface          $store
      * @param string                                    $key
-     * @param string[]                                  $filters
+     * @param string[]                                  $middleware
      *
      * @return void
      */
-    public function __construct(Zone $zone, StoreInterface $store, $key, array $filters)
+    public function __construct(Zone $zone, StoreInterface $store, $key, array $middleware)
     {
         $this->zone = $zone;
         $this->store = $store;
         $this->key = $key;
 
-        $this->beforeFilter('ajax', ['only' => ['getData']]);
+        $this->middleware(Ajax::class, ['only' => ['getData']]);
 
-        foreach ($filters as $filter) {
-            $this->beforeFilter($filter, ['only' => ['getIndex', 'getData']]);
+        foreach ($middleware as $class) {
+            $this->middleware($class);
         }
     }
 

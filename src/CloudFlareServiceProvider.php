@@ -75,9 +75,9 @@ class CloudFlareServiceProvider extends ServiceProvider
 
             $key = $app['config']['graham-campbell/cloudflare::key'];
 
-            $filters = $app['config']['graham-campbell/cloudflare::filters'];
+            $middleware = $app['config']['graham-campbell/cloudflare::middleware'];
 
-            return new Http\Controllers\CloudFlareController($zone, $store, $key, $filters);
+            return new Http\Controllers\CloudFlareController($zone, $store, $key, $middleware);
         });
     }
 
