@@ -16,7 +16,9 @@
 
 namespace GrahamCampbell\CloudFlare;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Lightgear\Asset\Asset;
 
 /**
  * This is the cloudflare service provider class.
@@ -43,8 +45,35 @@ class CloudFlareServiceProvider extends ServiceProvider
     {
         $this->package('graham-campbell/cloudflare', 'graham-campbell/cloudflare', __DIR__);
 
-        include __DIR__.'/routes.php';
-        include __DIR__.'/assets.php';
+        $this->setupAssets($this->app['asset']);
+
+        $this->setupRoutes($this->app['router']);
+    }
+
+    /**
+     * Setup the assets.
+     *
+     * @param \Lightgear\Asset $asset
+     *
+     * @return void
+     */
+    protected function setupAssets(Asset $asset)
+    {
+        $asset->registerScripts(['graham-campbell/cloudflare/src/assets/js/cloudflare.js'], '', 'cloudflare');
+    }
+
+    /**
+     * Setup the routes.
+     *
+     * @param \Illuminate\Routing\Router $router
+     *
+     * @return void
+     */
+    protected function setupRoutes(Router $router)
+    {
+        $router->group(['namespace' => 'GrahamCampbell\CloudFlare\Http\Controllers'], function (Router $router) {
+            require __DIR__.'/Http/routes.php';
+        });
     }
 
     /**

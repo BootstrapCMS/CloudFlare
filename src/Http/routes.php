@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-Route::get('cloudflare', [
-    'as' => 'cloudflare.index',
-    'uses' => 'GrahamCampbell\CloudFlare\Http\Controllers\CloudFlareController@getIndex',
-]);
+$router->get('cloudflare', ['as' => 'cloudflare.index', 'uses' => 'CloudFlareController@getIndex']);
 
-Route::get('cloudflare/data', [
-    'as' => 'cloudflare.data',
-    'uses' => 'GrahamCampbell\CloudFlare\Http\Controllers\CloudFlareController@getData',
-]);
+$router->get('cloudflare/data', ['as' => 'cloudflare.data', 'uses' => 'CloudFlareController@getData']);
