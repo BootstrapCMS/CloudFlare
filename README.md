@@ -76,12 +76,12 @@ This option (`'key'`) defines the cache key to be used for storing the stats cac
 
 ##### Additional Configuration
 
-You may want to check out the config for `graham-campbell/cloudflare-api` too.
+You may want to check out the config for both `graham-campbell/cloudflare-api` and `graham-campbell/core` too.
 
 
 ## Usage
 
-Laravel CloudFlare is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you have [config/platform.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/config/platform.php) and [config/views.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/config/views.php) correctly configured, and you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as knowledge of the `app:install` and `app:update ` commands is required.
+Laravel CloudFlare is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as configuration and knowledge of the `app:install` and `app:update ` commands is required.
 
 Laravel CloudFlare will register two routes. `'cloudflare'` (`cloudflare.index`) should be accessed to show the CloudFlare statistics page, and `'cloudflare/data'` (`cloudflare.data`) is internally used by this package.
 
