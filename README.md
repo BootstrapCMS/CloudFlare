@@ -1,16 +1,16 @@
 Laravel CloudFlare
 ==================
 
-Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 4.1/4.2](http://laravel.com). It utilises a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/GrahamCampbell/Laravel-CloudFlare-API). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-CloudFlare/releases), [license](LICENSE), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 4.1/4.2](http://laravel.com). It utilises a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/BootstrapCMS/CloudFlare-API). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/CloudFlare/releases), [license](LICENSE), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Laravel CloudFlare](https://cloud.githubusercontent.com/assets/2829600/4432320/c1804e48-468c-11e4-8786-34d48cf3ad2b.PNG)
 
 <p align="center">
-<a href="https://travis-ci.org/GrahamCampbell/Laravel-CloudFlare"><img src="https://img.shields.io/travis/GrahamCampbell/Laravel-CloudFlare/master.svg?style=flat-square" alt="Build Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-CloudFlare/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-CloudFlare.svg?style=flat-square" alt="Coverage Status"></img></a>
-<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-CloudFlare"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-CloudFlare.svg?style=flat-square" alt="Quality Score"></img></a>
+<a href="https://travis-ci.org/BootstrapCMS/CloudFlare"><img src="https://img.shields.io/travis/BootstrapCMS/CloudFlare/master.svg?style=flat-square" alt="Build Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/BootstrapCMS/CloudFlare/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/BootstrapCMS/CloudFlare.svg?style=flat-square" alt="Coverage Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/BootstrapCMS/CloudFlare"><img src="https://img.shields.io/scrutinizer/g/BootstrapCMS/CloudFlare.svg?style=flat-square" alt="Quality Score"></img></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
-<a href="https://github.com/GrahamCampbell/Laravel-CloudFlare/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Laravel-CloudFlare.svg?style=flat-square" alt="Latest Version"></img></a>
+<a href="https://github.com/BootstrapCMS/CloudFlare/releases"><img src="https://img.shields.io/github/release/BootstrapCMS/CloudFlare.svg?style=flat-square" alt="Latest Version"></img></a>
 </p>
 
 
@@ -38,7 +38,7 @@ Once Laravel CloudFlare is installed, you need to register the service provider.
 
 #### Looking for a laravel 5 compatable version?
 
-Checkout the [master branch](https://github.com/GrahamCampbell/Laravel-CloudFlare/tree/master), installable by requiring `"graham-campbell/cloudflare": "0.3.*"`.
+Checkout the [master branch](https://github.com/BootstrapCMS/CloudFlare/tree/master), installable by requiring `"graham-campbell/cloudflare": "0.3.*"`.
 
 
 ## Configuration
@@ -81,7 +81,7 @@ You may want to check out the config for `graham-campbell/cloudflare-api` too.
 
 ## Usage
 
-Laravel CloudFlare is designed to work with [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS). In order for it to work in any Laravel application, you must ensure that you have [app/config/platform.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/app/config/platform.php) and [app/config/views.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/app/config/views.php) correctly configured, and you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as knowledge of the `app:install` and `app:update ` commands is required.
+Laravel CloudFlare is designed to work with [Bootstrap CMS](https://github.com/BootstrapCMS/CMS). In order for it to work in any Laravel application, you must ensure that you have [app/config/platform.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/app/config/platform.php) and [app/config/views.php](https://github.com/GrahamCampbell/Laravel-Platform/blob/master/app/config/views.php) correctly configured, and you know how to use my [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) package as knowledge of the `app:install` and `app:update ` commands is required.
 
 Laravel CloudFlare will register two routes. `'cloudflare'` (`cloudflare.index`) should be accessed to show the CloudFlare statistics page, and `'cloudflare/data'` (`cloudflare.data`) is internally used by this package.
 
