@@ -1,7 +1,7 @@
 Laravel CloudFlare
 ==================
 
-Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 5](http://laravel.com). It utilises a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/BootstrapCMS/CloudFlare-API). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/CloudFlare/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 5](http://laravel.com). It utilises a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/BootstrapCMS/CloudFlare-API). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/CloudFlare/releases), [license](LICENSE), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Laravel CloudFlare](https://cloud.githubusercontent.com/assets/2829600/4432321/c18eb49c-468c-11e4-9f4d-8ece7a481d29.PNG)
 
