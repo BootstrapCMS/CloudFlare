@@ -23,36 +23,35 @@ use Lightgear\Asset\Asset;
 class CloudFlareServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
-    /**
-     * Bootstrap the application events.
+     * Boot the service provider.
      *
      * @return void
      */
     public function boot()
     {
-        $this->package('graham-campbell/cloudflare', 'graham-campbell/cloudflare', __DIR__);
+        $this->setupPackage($this->app->asset);
 
-        $this->setupAssets($this->app['asset']);
-
-        $this->setupRoutes($this->app['router']);
+        $this->setupRoutes($this->app->router);
     }
 
     /**
-     * Setup the assets.
+     * Setup the package.
      *
      * @param \Lightgear\Asset $asset
      *
      * @return void
      */
-    protected function setupAssets(Asset $asset)
+    protected function setupPackage(Asset $asset)
     {
-        $asset->registerScripts(['graham-campbell/cloudflare/src/assets/js/cloudflare.js'], '', 'cloudflare');
+        $source = realpath(__DIR__.'/../config/cloudflare.php');
+
+        $this->publishes([$source => config_path('cloudflare.php')]);
+
+        $this->mergeConfigFrom($source, 'cloudflare');
+
+        $this->loadViewsFrom(realpath(__DIR__.'/../views'), 'cloudflare');
+
+        $asset->registerScripts(['graham-campbell/cloudflare/assets/js/cloudflare.js'], '', 'cloudflare');
     }
 
     /**
@@ -88,16 +87,16 @@ class CloudFlareServiceProvider extends ServiceProvider
     {
         $this->app->bind('GrahamCampbell\CloudFlare\Http\Controllers\CloudFlareController', function ($app) {
             $zone = $app['cloudflareapi']
-                ->connection($app['config']['graham-campbell/cloudflare::connection'])
-                ->zone($app['config']['graham-campbell/cloudflare::zone']);
+                ->connection($app['config']['cloudflare.connection'])
+                ->zone($app['config']['cloudflare.zone']);
 
             $store = $app['cache']
-                ->driver($app['config']['graham-campbell/cloudflare::driver'])
+                ->driver($app['config']['cloudflare.driver'])
                 ->getStore();
 
-            $key = $app['config']['graham-campbell/cloudflare::key'];
+            $key = $app['config']['cloudflare.key'];
 
-            $middleware = $app['config']['graham-campbell/cloudflare::middleware'];
+            $middleware = $app['config']['cloudflare.middleware'];
 
             return new Http\Controllers\CloudFlareController($zone, $store, $key, $middleware);
         });

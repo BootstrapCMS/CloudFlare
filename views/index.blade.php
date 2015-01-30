@@ -1,4 +1,4 @@
-@extends(Config::get('graham-campbell/core::layout'))
+@extends(Config::get('core.layout'))
 
 @section('title')
 <?php $__navtype = 'admin'; ?>
@@ -16,7 +16,7 @@ CloudFlare
 <hr>
 @if($data)
     <div class="well" id="data">
-        @include('graham-campbell/cloudflare::data')
+        @include('cloudflare::data')
     </div>
 @else
     <div id="data">

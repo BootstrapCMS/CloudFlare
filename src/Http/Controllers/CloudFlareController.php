@@ -77,7 +77,7 @@ class CloudFlareController extends Controller
     {
         $data = $this->store->get($this->key);
 
-        return View::make('graham-campbell/cloudflare::index', ['data' => $data]);
+        return View::make('cloudflare::index', ['data' => $data]);
     }
 
     /**
@@ -91,6 +91,6 @@ class CloudFlareController extends Controller
 
         $this->store->put($this->key, $data, 30);
 
-        return View::make('graham-campbell/cloudflare::data', ['data' => $data]);
+        return View::make('cloudflare::data', ['data' => $data]);
     }
 }

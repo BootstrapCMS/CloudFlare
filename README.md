@@ -45,11 +45,13 @@ Checkout the [0.2 branch](https://github.com/BootstrapCMS/CloudFlare/tree/0.2), 
 
 Laravel CloudFlare supports optional configuration.
 
-To get started, first publish the package config file:
+To get started, you'll need to publish all vendor assets:
 
 ```bash
-$ php artisan publish:config graham-campbell/cloudflare
+$ php artisan vendor:publish
 ```
+
+This will create a `config/cloudflare.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
 
 There are a few config options:
 
