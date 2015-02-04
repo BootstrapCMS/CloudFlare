@@ -21,7 +21,7 @@
         "illuminate/routing": "5.0.*",
         "illuminate/support": "5.0.*",
         "illuminate/view": "5.0.*",
-        "lightgear/asset": "1.6.*",
+        "lightgear/asset": "~2.0",
         "graham-campbell/core": "~2.0",
         "graham-campbell/cloudflare-api": "0.7.*"
     },
