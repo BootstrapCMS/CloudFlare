@@ -1,7 +1,7 @@
 Laravel CloudFlare
 ==================
 
-Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 5](http://laravel.com). It utilises a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/BootstrapCMS/CloudFlare-API). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/CloudFlare/releases), [license](LICENSE), [api docs](http://docs.gjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 5](http://laravel.com). It utilises a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/BootstrapCMS/CloudFlare-API). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/CloudFlare/releases), [license](LICENSE), [api docs](https://docs.gjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Laravel CloudFlare](https://cloud.githubusercontent.com/assets/2829600/4432321/c18eb49c-468c-11e4-9f4d-8ece7a481d29.PNG)
 
@@ -87,7 +87,7 @@ Laravel CloudFlare is designed to work with [Bootstrap CMS](https://github.com/B
 
 Laravel CloudFlare will register two routes. `'cloudflare'` (`cloudflare.index`) should be accessed to show the CloudFlare statistics page, and `'cloudflare/data'` (`cloudflare.data`) is internally used by this package.
 
-The internals of Laravel CloudFlare are not documented here, but feel free to check out the [API Documentation](http://docs.gjcampbell.co.uk).
+The internals of Laravel CloudFlare are not documented here, but feel free to check out the [API Documentation](https://docs.gjcampbell.co.uk).
 
 
 ## License
