@@ -27,7 +27,7 @@ class CloudFlareController extends Controller
      *
      * @var \GrahamCampbell\CloudFlare\Clients\ClientInterface
      */
-    protected $store;
+    protected $client;
 
     /**
      * The zone id.
