@@ -16,12 +16,12 @@ Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https:
 
 ## Installation
 
-[PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.3+, and [Composer](https://getcomposer.org) are required.
+[PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+, and [Composer](https://getcomposer.org) are required.
 
 To get the latest version of Laravel CloudFlare, simply add the following line to the require block of your `composer.json` file:
 
 ```
-"graham-campbell/cloudflare": "0.3.*"
+"graham-campbell/cloudflare": "~1.0"
 ```
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
