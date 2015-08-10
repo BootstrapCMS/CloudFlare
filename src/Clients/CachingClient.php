@@ -50,7 +50,7 @@ class CachingClient implements ClientInterface
      *
      * @return void
      */
-    public function __construct(GuzzleClient $client, Repository $cache, $email)
+    public function __construct(ClientInterface $client, Repository $cache, $email)
     {
         $this->client = $client;
         $this->cache = $cache;
