@@ -11,19 +11,34 @@
 
 namespace GrahamCampbell\Tests\CloudFlare;
 
-use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
+use GrahamCampbell\CloudFlare\Clients\ClientInterface;
+use GrahamCampbell\CloudFlare\CloudFlareServiceProvider;
+use GrahamCampbell\TestBench\AbstractPackageTestCase;
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 /**
  * This is the service provider test class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class ServiceProviderTest extends AbstractTestCase
+class ServiceProviderTest extends AbstractPackageTestCase
 {
-    use ServiceProviderTestCaseTrait;
+    use ServiceProviderTrait;
+
+    /**
+     * Get the service provider class.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
+     * @return string
+     */
+    protected function getServiceProviderClass($app)
+    {
+        return CloudFlareServiceProvider::class;
+    }
 
     public function testAnalyticsClientIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\CloudFlare\Clients\ClientInterface');
+        $this->assertIsInjectable(ClientInterface::class);
     }
 }
