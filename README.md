@@ -26,10 +26,6 @@ To get the latest version of Laravel CloudFlare, simply add the following line t
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
-You will need to register a few service providers before you attempt to load the Laravel CloudFlare service provider. Open up `config/app.php` and add the following to the `providers` key.
-
-* `'GrahamCampbell\Core\CoreServiceProvider'`
-
 Once Laravel CloudFlare is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
 * `'GrahamCampbell\CloudFlare\CloudFlareServiceProvider'`
@@ -69,9 +65,9 @@ This option (`'cache'`) defines the cache driver to be used. It may be the name 
 
 This option (`'middlware'`) defines the middleware to be put in front of the endpoints provided by this package. A common use will be for your own authentication middleware. The default value for this setting is `[]`.
 
-##### Additional Configuration
+##### Layout
 
-You may want to check out the config for `graham-campbell/core` too.
+This option (`'layout'`) defines the layout to extend when building views. The default value for this setting is `'layouts.default'`.
 
 
 ## Usage

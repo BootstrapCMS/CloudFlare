@@ -15,7 +15,6 @@
         "illuminate/routing": "5.0.*",
         "illuminate/support": "5.0.*",
         "illuminate/view": "5.0.*",
-        "graham-campbell/core": "~3.0",
         "guzzlehttp/guzzle": "~6.0"
     },
     "require-dev": {

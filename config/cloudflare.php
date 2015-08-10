@@ -80,4 +80,17 @@ return [
 
     'middleware' => [],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Layout
+    |--------------------------------------------------------------------------
+    |
+    | This defines the layout to extend when building views.
+    |
+    | Default to 'layouts.default'.
+    |
+    */
+
+    'layout' => 'layouts.default',
+
 ];

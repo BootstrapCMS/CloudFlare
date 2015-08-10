@@ -1,4 +1,4 @@
-@extends(Config::get('core.default'))
+@extends(Config::get('cloudflare.layout'))
 
 @section('title')
 <?php $__navtype = 'admin'; ?>
