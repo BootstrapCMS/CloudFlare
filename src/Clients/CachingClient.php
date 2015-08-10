@@ -67,7 +67,7 @@ class CachingClient implements ClientInterface
      */
     public function get($zone, array $params)
     {
-        return $app->cache->remember(sha1($this->email.json_encode($params)), 720, function () use ($zone, $params) {
+        return $this->cache->remember(sha1($this->email.json_encode($params)), 720, function () use ($zone, $params) {
             return $this->client->get($zone, $params);
         });
     }
