@@ -16,7 +16,7 @@ namespace GrahamCampbell\CloudFlare\Clients;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class ClientInterface
+interface ClientInterface
 {
     /**
      * Get the analytics data for a given zone.
