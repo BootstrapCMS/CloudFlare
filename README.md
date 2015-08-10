@@ -36,10 +36,6 @@ Once Laravel CloudFlare is installed, you need to register the service provider.
 
 * `'GrahamCampbell\CloudFlare\CloudFlareServiceProvider'`
 
-#### Looking for a laravel 4 compatable version?
-
-Checkout the [0.2 branch](https://github.com/BootstrapCMS/CloudFlare/tree/0.2), installable by requiring `"graham-campbell/cloudflare": "0.2.*"`.
-
 
 ## Configuration
 
