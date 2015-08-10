@@ -1,25 +1,2 @@
-<table class="table">
-    <thead>
-        <th>Type</th>
-        <th>Regular</th>
-        <th>Threat</th>
-        <th>Crawler</th>
-        <th>Total</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Page Views</td>
-            <td>{{ $data['pageviews']['regular'] }}</td>
-            <td>{{ $data['pageviews']['threat'] }}</td>
-            <td>{{ $data['pageviews']['crawler'] }}</td>
-            <td>{{ array_sum($data['pageviews']) }}</td>
-        </tr>
-        <tr>
-            <td>Unique Visitors</td>
-            <td>{{ $data['uniques']['regular'] }}</td>
-            <td>{{ $data['uniques']['threat'] }}</td>
-            <td>{{ $data['uniques']['crawler'] }}</td>
-            <td>{{ array_sum($data['uniques']) }}</td>
-        </tr>
-    </tbody>
-</table>
+<p class="lead">There have been {{ $data['pageviews']['all'] }} pageviews in the last 30 days from {{ $data['uniques']['all'] }} unique visitors.</p>
+<p class="lead">The total number of requests served was {{ $data['requests']['all'] }}, using {{ round($data['bandwidth']['all']/1024/1024) }} MB of bandwidth.</p>

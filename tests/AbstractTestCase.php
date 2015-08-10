@@ -30,9 +30,7 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
     protected function getRequiredServiceProviders($app)
     {
         return [
-            'Lightgear\Asset\AssetServiceProvider',
             'GrahamCampbell\Core\CoreServiceProvider',
-            'GrahamCampbell\CloudFlareAPI\CloudFlareAPIServiceProvider',
         ];
     }
 

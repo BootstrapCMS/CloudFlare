@@ -9,21 +9,14 @@
             "email": "graham@alt-three.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/BootstrapCMS/asset"
-        }
-    ],
     "require": {
-        "php": ">=5.5.0",
+        "php": ">=5.5.9",
         "illuminate/contracts": "5.0.*",
         "illuminate/routing": "5.0.*",
         "illuminate/support": "5.0.*",
         "illuminate/view": "5.0.*",
-        "lightgear/asset": "~2.0",
-        "graham-campbell/core": "~2.0",
-        "graham-campbell/cloudflare-api": "0.7.*"
+        "graham-campbell/core": "~3.0",
+        "guzzlehttp/guzzle": "~6.0"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0"

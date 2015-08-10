@@ -1,7 +1,7 @@
 Laravel CloudFlare
 ==================
 
-Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 5](http://laravel.com). It utilises a few of my packages including [Laravel Core](https://github.com/GrahamCampbell/Laravel-Core) and [Laravel CloudFlare API](https://github.com/BootstrapCMS/CloudFlare-API). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/CloudFlare/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md).
+Laravel CloudFlare was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and provides a simple [CloudFlare](https://www.cloudflare.com/) module for [Laravel 5](http://laravel.com). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/BootstrapCMS/CloudFlare/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Laravel CloudFlare](https://cloud.githubusercontent.com/assets/2829600/4432321/c18eb49c-468c-11e4-9f4d-8ece7a481d29.PNG)
 
@@ -28,9 +28,7 @@ You'll then need to run `composer install` or `composer update` to download it a
 
 You will need to register a few service providers before you attempt to load the Laravel CloudFlare service provider. Open up `config/app.php` and add the following to the `providers` key.
 
-* `'Lightgear\Asset\AssetServiceProvider'`
 * `'GrahamCampbell\Core\CoreServiceProvider'`
-* `'GrahamCampbell\CloudFlareAPI\CloudFlareAPIServiceProvider'`
 
 Once Laravel CloudFlare is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
@@ -51,30 +49,29 @@ This will create a `config/cloudflare.php` file in your app that you can modify 
 
 There are a few config options:
 
+##### API Key
+
+This option (`'key'`) defines the api key to use to make calls to CloudFlare's API. The default value for this setting is `''`.
+
+##### Email
+
+This option (`'email'`) defines the email address to use to make calls to CloudFlare's API. The default value for this setting is `''`.
+
+##### Zone
+
+This option (`'zone'`) defines the zone to read analytics information for. The default value for this setting is `''`.
+
+##### Cache Driver
+
+This option (`'cache'`) defines the cache driver to be used. It may be the name of any driver set in config/cache.php. Setting it to null will use the driver you have set as default in config/cache.php. The default value for this setting is `null`.
+
 ##### Middleware
 
 This option (`'middlware'`) defines the middleware to be put in front of the endpoints provided by this package. A common use will be for your own authentication middleware. The default value for this setting is `[]`.
 
-##### Connection
-
-This option (`'connection'`) defines the connection to use for api calls to CloudFlare. Set this to null to use the default connection, or specify a connection name as defined in your cloudflare-api config file. The default value for this setting is `null`.
-
-##### Zone
-
-This option (`'zone'`) defines the zone to use for api calls to CloudFlare. The default value for this setting is `'example.com'`.
-
-##### Cache Driver
-
-This option (`'driver'`) defines the cache driver to be used. It may be the name of any driver set in config/cache.php. Setting it to null will use the driver you have set as default in config/cache.php. The default value for this setting is `null`.
-
-##### Cache Key
-
-This option (`'key'`) defines the cache key to be used for storing the stats cache. The default value for this setting is `'cloudflarestats'`.
-
-
 ##### Additional Configuration
 
-You may want to check out the config for both `graham-campbell/cloudflare-api` and `graham-campbell/core` too.
+You may want to check out the config for `graham-campbell/core` too.
 
 
 ## Usage

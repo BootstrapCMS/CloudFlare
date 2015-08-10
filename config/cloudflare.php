@@ -13,46 +13,42 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Middleware
+    | API Key
     |--------------------------------------------------------------------------
     |
-    | This defines the middleware to be put in front of the endpoints provided
-    | by this package. A common use will be for your own authentication
-    | middleware.
+    | This defines the api key to use to make calls to CloudFlare's API.
     |
-    | Default to [].
+    | Default to ''.
     |
     */
 
-    'middleware' => [],
+    'key' => '',
 
     /*
     |--------------------------------------------------------------------------
-    | Connection
+    | Email
     |--------------------------------------------------------------------------
     |
-    | This defines the connection to use for api calls to CloudFlare. Set this
-    | to null to use the default connection, or specify a connection name as
-    | defined in your cloudflare-api config file.
+    | This defines the email address to use to make calls to CloudFlare's API.
     |
-    | Default to null.
+    | Default to ''.
     |
     */
 
-    'connection' => null,
+    'email' => '',
 
     /*
     |--------------------------------------------------------------------------
     | Zone
     |--------------------------------------------------------------------------
     |
-    | This defines the zone to use for api calls to CloudFlare.
+    | This defines the zone to read analytics information for.
     |
-    | Default to 'example.com'.
+    | Default to ''.
     |
     */
 
-    'zone' => 'example.com',
+    'zone' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -67,19 +63,21 @@ return [
     |
     */
 
-    'driver' => null,
+    'cache' => null,
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Key
+    | Middleware
     |--------------------------------------------------------------------------
     |
-    | This defines the cache key to be used for storing the stats cache.
+    | This defines the middleware to be put in front of the endpoints provided
+    | by this package. A common use will be for your own authentication
+    | middleware.
     |
-    | Default: 'cloudflarestats'
+    | Default to [].
     |
     */
 
-    'key' => 'cloudflarestats',
+    'middleware' => [],
 
 ];

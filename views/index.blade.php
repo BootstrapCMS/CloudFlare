@@ -14,22 +14,34 @@ CloudFlare
 @section('content')
 <p class="lead">Here are your visitor statistics from CloudFlare:</p>
 <hr>
-@if($data)
-    <div class="well" id="data">
-        @include('cloudflare::data')
-    </div>
-@else
-    <div id="data">
-        <p class="lead"><i class="fa fa-refresh fa-spin fa-lg"></i> Loading...</p>
-    </div>
-@endif
+<div id="data">
+    <p class="lead"><i class="fa fa-refresh fa-spin fa-lg"></i> Loading...</p>
+</div>
 @stop
 
 @section('js')
-@if(!$data)
-    <script>
-    var laravelCloudFlareURL = '{{ URL::route('cloudflare.data') }}';
-    </script>
-    {!! Asset::scripts('cloudflare') !!}
-@endif
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: {{ URL::route('cloudflare.data') }},
+        type: "GET",
+        dataType: "html",
+        timeout: 10000,
+        success: function(data, status, xhr) {
+            var area = $('#data');
+            area.fadeOut(200, function() {
+                area.html(data);
+                area.fadeIn(200);
+            });
+        },
+        error: function(xhr, status, error) {
+            var area = $('#data');
+            area.fadeOut(200, function() {
+                area.html('<p class="lead">There was an error getting the data.</p>');
+                area.fadeIn(200);
+            });
+        }
+    });
+});
+</script>
 @stop

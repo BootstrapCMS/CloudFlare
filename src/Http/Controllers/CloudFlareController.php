@@ -11,9 +11,7 @@
 
 namespace GrahamCampbell\CloudFlare\Http\Controllers;
 
-use GrahamCampbell\CloudFlareAPI\Models\Zone;
-use GrahamCampbell\Core\Http\Middleware\Ajax;
-use Illuminate\Cache\StoreInterface;
+use GrahamCampbell\CloudFlare\Clients\ClientInterface;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
 
@@ -25,43 +23,32 @@ use Illuminate\Support\Facades\View;
 class CloudFlareController extends Controller
 {
     /**
-     * The zone model instance.
+     * The client instance.
      *
-     * @var \GrahamCampbell\CloudFlareAPI\Models\Zone
-     */
-    protected $zone;
-
-    /**
-     * The store instance.
-     *
-     * @var \Illuminate\Cache\StoreInterface
+     * @var \GrahamCampbell\CloudFlare\Clients\ClientInterface
      */
     protected $store;
 
     /**
-     * The store key.
+     * The zone id.
      *
      * @var string
      */
-    protected $key;
+    protected $zone;
 
     /**
-     * Create a new instance.
+     * Create a new cloudflare controller instance.
      *
-     * @param \GrahamCampbell\CloudFlareAPI\Models\Zone $zone
-     * @param \Illuminate\Cache\StoreInterface          $store
-     * @param string                                    $key
-     * @param string[]                                  $middleware
+     * @param \GrahamCampbell\CloudFlare\Clients\ClientInterface $client
+     * @param string                                             $zone
+     * @param string[]                                           $middleware
      *
      * @return void
      */
-    public function __construct(Zone $zone, StoreInterface $store, $key, array $middleware)
+    public function __construct(ClientInterface $client, $zone, array $middleware)
     {
+        $this->client = $client;
         $this->zone = $zone;
-        $this->store = $store;
-        $this->key = $key;
-
-        $this->middleware(Ajax::class, ['only' => ['getData']]);
 
         foreach ($middleware as $class) {
             $this->middleware($class);
@@ -75,9 +62,7 @@ class CloudFlareController extends Controller
      */
     public function getIndex()
     {
-        $data = $this->store->get($this->key);
-
-        return View::make('cloudflare::index', ['data' => $data]);
+        return View::make('cloudflare::index');
     }
 
     /**
@@ -87,9 +72,9 @@ class CloudFlareController extends Controller
      */
     public function getData()
     {
-        $data = $this->zone->getTraffic();
+        $raw = $this->client->get($this->zone, ['since' => -43200]);
 
-        $this->store->put($this->key, $data, 30);
+        $data = json_decode($raw->getBody(), true)['result']['totals'];
 
         return View::make('cloudflare::data', ['data' => $data]);
     }

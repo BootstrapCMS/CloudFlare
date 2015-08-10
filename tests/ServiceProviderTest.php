@@ -21,4 +21,9 @@ use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
 class ServiceProviderTest extends AbstractTestCase
 {
     use ServiceProviderTestCaseTrait;
+
+    public function testAnalyticsClientIsInjectable()
+    {
+        $this->assertIsInjectable('GrahamCampbell\CloudFlare\Clients\ClientInterface');
+    }
 }

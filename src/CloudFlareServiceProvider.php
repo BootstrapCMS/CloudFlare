@@ -11,9 +11,13 @@
 
 namespace GrahamCampbell\CloudFlare;
 
+use GrahamCampbell\CloudFlare\Clients\CachingClient;
+use GrahamCampbell\CloudFlare\Clients\ClientInterface;
+use GrahamCampbell\CloudFlare\Clients\HttpClient;
+use GrahamCampbell\CloudFlare\Http\Controllers\CloudFlareController;
+use GuzzleHttp\Client;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Lightgear\Asset\Asset;
 
 /**
  * This is the cloudflare service provider class.
@@ -29,7 +33,7 @@ class CloudFlareServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->setupPackage($this->app->asset);
+        $this->setupPackage();
 
         $this->setupRoutes($this->app->router);
     }
@@ -37,11 +41,9 @@ class CloudFlareServiceProvider extends ServiceProvider
     /**
      * Setup the package.
      *
-     * @param \Lightgear\Asset $asset
-     *
      * @return void
      */
-    protected function setupPackage(Asset $asset)
+    protected function setupPackage()
     {
         $source = realpath(__DIR__.'/../config/cloudflare.php');
 
@@ -50,8 +52,6 @@ class CloudFlareServiceProvider extends ServiceProvider
         $this->mergeConfigFrom($source, 'cloudflare');
 
         $this->loadViewsFrom(realpath(__DIR__.'/../views'), 'cloudflare');
-
-        $asset->registerScripts(['graham-campbell/cloudflare/assets/js/cloudflare.js'], '', 'cloudflare');
     }
 
     /**
@@ -75,7 +75,31 @@ class CloudFlareServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerAnalyticsClient();
         $this->registerCloudFlareController();
+    }
+
+    /**
+     * Register the analytics client class.
+     *
+     * @return void
+     */
+    protected function registerAnalyticsClient()
+    {
+        $this->app->bind(ClientInterface::class, function ($app) {
+            $config = $app->config->get('cloudflare');
+
+            $client = new Client([
+                'base_uri' => 'https://api.cloudflare.com/client/v4/zones/',
+                'headers'  => ['Accept' => 'application/json', 'X-Auth-Key' => $config['key'], 'X-Auth-Email' => $config['email']],
+            ]);
+
+            $http = new HttpClient($client);
+
+            $cache = $app->cache->driver($config['cache']);
+
+            return new CachingClient($http, $cache, $config['email']);
+        });
     }
 
     /**
@@ -85,20 +109,11 @@ class CloudFlareServiceProvider extends ServiceProvider
      */
     protected function registerCloudFlareController()
     {
-        $this->app->bind('GrahamCampbell\CloudFlare\Http\Controllers\CloudFlareController', function ($app) {
-            $zone = $app['cloudflareapi']
-                ->connection($app['config']['cloudflare.connection'])
-                ->zone($app['config']['cloudflare.zone']);
+        $this->app->bind(CloudFlareController::class, function ($app) {
+            $client = $app->make(ClientInterface::class);
+            $config = $app->config->get('cloudflare');
 
-            $store = $app['cache']
-                ->driver($app['config']['cloudflare.driver'])
-                ->getStore();
-
-            $key = $app['config']['cloudflare.key'];
-
-            $middleware = $app['config']['cloudflare.middleware'];
-
-            return new Http\Controllers\CloudFlareController($zone, $store, $key, $middleware);
+            return new CloudFlareController($client, $config['zone'], $config['middleware']);
         });
     }
 
